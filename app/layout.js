@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-gank-900`}
     >
-      <body className="grid place-content-center overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   );
 }

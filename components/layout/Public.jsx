@@ -28,7 +28,7 @@ const Public = () => {
   ];
 
   return (
-    <div className="w-full py-40">
+    <div className="w-full py-40 px-4">
       <article className="container max-w-7xl flex flex-col lg:flex-row gap-10 bg-gank-800 rounded-2xl border border-gank-p/25 mx-auto p-4">
         <div className="lg:max-w-4/12 bg-gank-900 rounded-[inherit] border border-[inherit] px-4 p-10">
           <p className="title-h2 mb-5">
@@ -131,6 +131,7 @@ const Public = () => {
           </div>
         </div>
       </article>
+      <small className="block mx-auto text-center pt-4 text-base  px-2 mix-blend-luminosity bg-linear-to-br from-white to-gank-grayish-100/50 bg-clip-text text-transparent">Escalar sem estrutura não é crescimento, é risco.</small>
     </div>
   );
 };

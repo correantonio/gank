@@ -4,6 +4,7 @@ import Solution from '@/components/layout/Solution';
 import Example from '@/components/layout/Example';
 import Differential from '@/components/layout/Differential';
 import Public from '@/components/layout/Public';
+import Ending from '@/components/layout/Ending';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Example />
       <Differential />
       <Public/>
+      <Ending />
     </main>
   );
 }

@@ -1,8 +1,11 @@
+"use client"
+
 import React from 'react';
 import Image from 'next/image';
 import ganklogo from '../../assets/0-hero/logogank3d.png';
 import Button from '../ui/Button';
 import Circles from '../ui/Circles';
+import TypographyH1 from '../ui/Text/TypographyH1';
 
 const Hero = () => {
   return (
@@ -13,11 +16,8 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className="title-h1 mb-2">
-            <span className="text-emphasys">escale</span> seu e-commerce com
-            previsibilidade e <span className="text-emphasys">lucro</span>.
-          </h1>
-          <p className="text-gank-grayish-100 text-lg max-w-2xl mx-auto">
+          <TypographyH1> <span className="text-emphasys">Escale</span> seu ecommerce com previsibilidade e <span className="text-emphasys">lucro</span></TypographyH1>
+          <p className="text-gank-grayish-100 text-lg max-w-2xl mx-auto mt-2">
             Se você já investe em tráfego, mas não tem clareza de quanto volta,
             quanto pode investir e quando escalar, sua operação está travando
             seu crescimento
