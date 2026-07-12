@@ -76,7 +76,7 @@ export default function Differential() {
 
   return (
     // Wrapper externo isolado apenas para o GSAP fazer o pin sem quebrar o CSS interno
-    <div ref={pinWrapperRef} className="w-full">
+    <div ref={pinWrapperRef} className="w-full" style={{boxShadow:'inset 0 80px 0 #0c000f'}}>
       <div ref={containerRef} className="relative w-full bg-gank-950">
         
         {/* OVERLAY: Inicia cobrindo o fundo com a cor de destaque */}
@@ -91,7 +91,7 @@ export default function Differential() {
           <article className="container mx-auto max-w-7xl px-4 py-20 lg:py-40">
             
             <div ref={headerRef} className="mx-auto mb-10 text-center lg:max-w-6/12">
-              <SectionHeader icon="hammer">
+              <SectionHeader icon="stars">
                 Por que a Gank é <span className="text-emphasys">diferente</span>
               </SectionHeader>
             </div>

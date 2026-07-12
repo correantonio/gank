@@ -94,7 +94,7 @@ export default function Example() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 5%',
+            start: 'top 2%',
             end: '+=1500', // Distância menor no mobile para a animação ser mais responsiva ao toque
             scrub: 1,
             pin: true,
@@ -120,11 +120,11 @@ export default function Example() {
   }, []);
 
   return (
-    <article ref={containerRef} className="w-full overflow-hidden bg-gank-950">
+    <article ref={containerRef} className="w-full bg-gank-950">
       <div className="s-example container mx-auto max-w-7xl px-4 py-10 lg:py-20">
         
         <div ref={headerRef} className="mx-auto mb-16 text-center lg:max-w-6/12">
-          <SectionHeader icon="hammer">
+          <SectionHeader icon="bowarrow">
             Veja um <span className="text-emphasys">exemplo real</span> do nosso
             trabalho
           </SectionHeader>
@@ -150,7 +150,7 @@ export default function Example() {
             </div>
             
             {/* Lista ajustada com posição mais alta no mobile para não cortar fora da tela */}
-            <ul className="absolute left-10 top-0 h-fit z-10 flex max-w-[240px] flex-col gap-3 rounded-lg bg-gank-800 p-3 shadow-2xl shadow-gank-600__main/20 sm:right-10 lg:bottom-0 lg:right-0 lg:max-w-[290px] lg:translate-y-1/2 lg:gap-4 lg:p-4">
+            <ul className="absolute left-10 top-0 h-fit z-10 flex max-w-[240px] flex-col gap-3 rounded-lg bg-gank-800 p-3 sm:right-10 lg:bottom-0 lg:right-0 lg:max-w-[290px] lg:translate-y-1/2 lg:gap-4 lg:p-4">
               {list.error.map((item, i) => (
                 <div key={i} ref={(el) => (list1ItemsRef.current[i] = el)}>
                   <ListItem text={item} status="error" border="minBorderB" />
@@ -175,7 +175,7 @@ export default function Example() {
               />
             </div>
             
-            <ul className="absolute -bottom-8 right-2 z-20 flex max-w-[240px] flex-col gap-3 rounded-lg bg-gank-800 p-3 shadow-2xl shadow-gank-600__main/20 sm:right-10 lg:-bottom-15 lg:-right-20 lg:max-w-[290px] lg:-translate-x-1/2 lg:gap-4 lg:p-4">
+            <ul className="absolute -bottom-8 right-2 z-20 flex max-w-[240px] flex-col gap-3 rounded-lg bg-gank-800 p-3 sm:right-10 lg:-bottom-15 lg:-right-20 lg:max-w-[290px] lg:-translate-x-1/2 lg:gap-4 lg:p-4">
               {list.success.map((item, i) => (
                 <div key={i} ref={(el) => (list2ItemsRef.current[i] = el)}>
                   <ListItem text={item} status="success" border="minBorderB" />

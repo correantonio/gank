@@ -6,7 +6,7 @@ const SectionHeader = ({icon, children, className}) => {
 
   return (
     <header className={cn("", className)} >
-      <SectionIcon icon={icon} />
+      <SectionIcon icon={icon}/>
       <h2 className="title-h2">
         {children}
       </h2>

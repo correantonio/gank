@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { ShoppingCart, GlobeX, Hammer, Star, Phone, DatabaseZap, Newspaper, SquareMousePointer } from 'lucide-react';
+import { ShoppingCart, GlobeX, Hammer, Star, Phone, DatabaseZap, Newspaper, SquareMousePointer, Stars, BowArrow } from 'lucide-react';
 
 const SectionIcon = ({icon , className, size = 40}) => {
   const ICON_TYPE = {
@@ -16,6 +16,9 @@ const SectionIcon = ({icon , className, size = 40}) => {
     star: {
       Icon: Star,
     },
+    stars: {
+      Icon: Stars,
+    },
     phone: {
       Icon: Phone,
     },
@@ -27,6 +30,9 @@ const SectionIcon = ({icon , className, size = 40}) => {
     },
      mousepointer: {
       Icon: SquareMousePointer
+    },
+    bowarrow: {
+      Icon: BowArrow
     }
   };
 
