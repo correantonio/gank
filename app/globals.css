@@ -18,10 +18,37 @@
 
   --color-gank-green: #00E043;
   --color-gank-redness: #F5006E;
+
+  --font-baskerville: Libre Baskerville, sans-serif ;
+
+    --animate-meteor: meteor 3s linear infinite;
+  @keyframes meteor {
+    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+  }
+
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.08); }
+  }
+
+  --animate-ring-spin-slow: ring-spin 60s linear infinite;
+  --animate-ring-spin-slower: ring-spin-reverse 90s linear infinite;
+  --animate-ring-spin-slowest: ring-spin 140s linear infinite;
+  @keyframes ring-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes ring-spin-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
 }
 
 .title-h1 {
-  @apply text-4xl lg:text-8xl mix-blend-luminosity bg-linear-to-br from-white to-gank-grayish-100/50 bg-clip-text text-transparent;
+  @apply text-5xl lg:text-8xl mix-blend-luminosity bg-linear-to-br from-white to-gank-grayish-100/50 bg-clip-text text-transparent;
   line-height: 1.22;
 }
 
@@ -31,7 +58,7 @@
 }
 
 .text-emphasys {
-  @apply mix-blend-luminosity bg-linear-to-br from-white to-gank-grayish-100/50 bg-clip-text text-transparent;
-  font-family: serif !important;
+  @apply mix-blend-luminosity bg-linear-to-br from-white to-gank-grayish-100/50 bg-clip-text text-transparent font-baskerville;
   font-style: italic;
 }
+
