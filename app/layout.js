@@ -15,57 +15,37 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata = {
-  title: 'Agência Gank: Escale seu E-commerce com Previsibilidade',
-  description:
-    'Escale seu e-commerce com previsibilidade. A Agência Gank foca em lucro e dados reais, com +200 lojas atendidas. Solicite uma análise da operação.',
-  
-  icons: {
-    icon: [
-      { url: './favicon.ico' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    android: [
-      {
-        url: './android-chrome-192x192.png',
-        sizes: '192x192',
-        type: 'image/png',
-        url: './android-chrome-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-    ],
-  },
+  title: "Agência Gank: Escale seu E-commerce com Previsibilidade",
+  description: "Escale seu e-commerce com previsibilidade. A Agência Gank foca em lucro e dados reais, com +200 lojas atendidas. Solicite uma análise da operação.",
   alternates: {
-    canonical: 'https://agenciagank.com.br/',
+    canonical: "https://agenciagank.com.br/",
   },
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: 'Agência Gank: Escale seu E-commerce com Previsibilidade',
-    description:
-      'Escale seu e-commerce com previsibilidade. A Agência Gank foca em lucro e dados reais, com +200 lojas atendidas. Solicite uma análise da operação.',
-    url: 'https://agenciagank.com.br/',
-    type: 'website',
+    title: "Agência Gank: Escale seu E-commerce com Previsibilidade",
+    description: "Escale seu e-commerce com previsibilidade. A Agência Gank foca em lucro e dados reais, com +200 lojas atendidas. Solicite uma análise da operação.",
+    url: "https://agenciagank.com.br/",
+    siteName: "Agência Gank",
+    type: "website",
+    locale: "pt_BR",
     images: [
       {
-        url: '[INSERT IDEAL IMAGE URL HERE - ex: foto da equipe da agência ou dashboard de resultados]',
+        url: "../public/SEO-equipe-gank.avif", // O caminho da imagem deve ficar na pasta public
+        width: 1200,
+        height: 630,
+        alt: "Resultados de performance e escala de e-commerce da Agência Gank",
       },
     ],
-    locale: 'pt_BR',
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Agência Gank: Escale seu E-commerce com Previsibilidade',
-    description:
-      'Escale seu e-commerce com previsibilidade. A Agência Gank foca em lucro e dados reais, com +200 lojas atendidas. Solicite uma análise da operação.',
+    card: "summary_large_image",
+    title: "Agência Gank: Escale seu E-commerce com Previsibilidade",
+    description: "Escale seu e-commerce com previsibilidade. A Agência Gank foca em lucro e dados reais, com +200 lojas atendidas. Solicite uma análise da operação.",
+    images: ["../public/SEO-equipe-gank.avif"],
   },
-  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({ children }) {

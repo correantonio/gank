@@ -68,11 +68,11 @@ export default function Solution() {
 
   return (
     <div 
-      ref={containerRef} 
+      ref={containerRef}
       className="flex min-h-screen w-full items-center justify-center overflow-hidden bg-gank-950 px-4 py-20"
     >
       {/* Grid de 3 colunas que mantém a imagem no centro naturalmente */}
-      <article className="mx-auto w-full max-w-7xl grid grid-cols-1 items-center gap-10 lg:grid-cols-3">
+      <article className="mx-auto w-full max-w-7xl grid grid-cols-1 items-center gap-10 lg:grid-cols-3" id='s-solution'>
         
         {/* Coluna Esquerda: Header */}
         <div ref={headerRef} className="w-full">
