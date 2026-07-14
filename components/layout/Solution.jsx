@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '../ui/SectionHeader';
-import ganklogo from '../../assets/0-hero/logogank3d.png';
-
+import gankLetter from '@/public/Gank.svg';
+import Circles from '../ui/Circles';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,86 +31,151 @@ const solutionList = [
 export default function Solution() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
-  const iconRef = useRef(null);
+  const quoteWrapRef = useRef(null);
   const listItemsRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Estado inicial garantido antes do scroll
+      // Estado inicial crítico
       gsap.set(headerRef.current, { opacity: 0, x: -30 });
-      gsap.set(iconRef.current, { scale: 0.3, rotation: 0 }); // Inicia pequeno
-      gsap.set(listItemsRef.current, { opacity: 0, y: 30 });
+      gsap.set(quoteWrapRef.current, { height: 0, opacity: 0 });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: '+=3000', // Scroll prolongado para dar tempo à leitura da lista
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          desktop: '(min-width: 1024px)',
+          mobile: '(max-width: 1023px)',
         },
-      });
+        (context) => {
+          const { mobile } = context.conditions;
 
-      // 1. O ícone cresce e gira continuamente até o fim da timeline
-      tl.to(iconRef.current, { scale: 1, rotate: 0, duration: 4, ease: 'power1.inOut' }, 0)
-        
-        // 2. O Header surge rapidamente na esquerda
-        .to(headerRef.current, { opacity: 1, x: 0, duration: 1 }, 0.5)
-        
-        // 3. A lista surge na direita, item por item, atrelada ao scroll
-        .to(listItemsRef.current, { opacity: 1, y: 0, duration: 1, stagger: 0.6 }, 1);
+          // Preparação individual dos itens baseada na viewport
+          listItemsRef.current.forEach((item, i) => {
+            if (!item) return;
+            const num = item.querySelector('.item-num');
+            const title = item.querySelector('.item-title');
+            const border = item.querySelector('.item-border');
+            const pWrap = item.querySelector('.item-p-wrap');
 
+            if (i === 0) {
+              gsap.set([num, title, border], { opacity: 1 });
+              gsap.set(pWrap, { height: 'auto', opacity: 1 });
+            } else {
+              gsap.set([num, title, border], { opacity: 0.5 });
+              gsap.set(pWrap, { height: 0, opacity: 0 });
+            }
+          });
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: 'top top',
+              end: '+=4000',
+              scrub: 1,
+              pin: true,
+              anticipatePin: 1,
+            },
+          });
+
+          // 1. Header
+          tl.to(headerRef.current, { opacity: 1, x: 0, duration: 1 });
+
+          // 2. Iteração de lista 
+          listItemsRef.current.forEach((item, i) => {
+            if (i === 0) return;
+
+            const num = item.querySelector('.item-num');
+            const title = item.querySelector('.item-title');
+            const border = item.querySelector('.item-border');
+            const pWrap = item.querySelector('.item-p-wrap');
+            const prevItem = listItemsRef.current[i - 1];
+            const prevPWrap = prevItem?.querySelector('.item-p-wrap');
+
+            const itemTl = gsap.timeline();
+
+            // Mobile: esconde o parágrafo anterior (Efeito Escada Rolante)
+            if (mobile && prevPWrap) {
+              itemTl.to(prevPWrap, { height: 0, opacity: 0, duration: 1 }, 0);
+            }
+
+            // Iluminação e abertura sequencial
+            itemTl.to([num, border], { opacity: 1, duration: 0.4 }, mobile ? 0 : '+=0');
+            itemTl.to(title, { opacity: 1, duration: 0.4 }, '<0.2');
+            itemTl.to(pWrap, { height: 'auto', opacity: 1, duration: 1 }, '<');
+
+            tl.add(itemTl);
+          });
+
+          // 3. A citação aparece por último, abrindo o espaço e a margem originais
+          tl.to(
+            quoteWrapRef.current,
+            {
+              height: 'auto',
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power2.out',
+            },
+            '+=0.5'
+          );
+        }
+      );
+
+      return () => mm.revert();
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div 
-      ref={containerRef}
-      className="flex min-h-screen w-full items-center justify-center overflow-hidden bg-gank-950 px-4 py-20"
-    >
-      {/* Grid de 3 colunas que mantém a imagem no centro naturalmente */}
-      <article className="mx-auto w-full max-w-7xl grid grid-cols-1 items-center gap-10 lg:grid-cols-3" id='s-solution'>
+    // Adicionado `min-h-screen items-center` para garantir que o pin englobe todo o viewport
+    // permitindo o crescimento centralizado sem cortar o conteúdo inferior
+    <article ref={containerRef} className="flex min-h-screen items-center bg-gank-950 px-4 py-20" id="s-solution">
+      <div className="mx-auto w-full flex flex-col justify-center lg:max-w-7xl">
         
-        {/* Coluna Esquerda: Header */}
-        <div ref={headerRef} className="w-full">
-          <SectionHeader icon="hammer">
+        <div ref={headerRef}>
+          <SectionHeader icon="hammer" className="mb-10 lg:max-w-6/12">
             Como a Gank estrutura
             <span className="text-emphasys"> sua operação</span>
           </SectionHeader>
         </div>
 
-        {/* Coluna Central: Imagem/Logo */}
-        <div ref={iconRef} className="flex w-full items-center justify-center text-gank-p">
-          <Image src={ganklogo} alt="Logo Gank" className="size-auto"/>
+        {/* Wrapper isolado. Mantém as classes originais da citação completamente intocadas internamente. */}
+        <div ref={quoteWrapRef} className="overflow-hidden">
+          <div className="quote flex gap-4 items-center justify-between p-1 lg:pr-4 bg-gank-700 rounded-lg lg:mb-20 mb-10">
+            <p className="lg:text-2xl flex-1 p-4 bg-gank-900 rounded-lg">
+              Acreditamos que nossas ações, geram Resultado e Performance, para
+              nós, e nossos clientes.
+            </p>
+            <Image
+              src={gankLetter}
+              alt="Logo Gank"
+              className="lg:max-w-2/12 hidden lg:block mt-2"
+            />
+          </div>
         </div>
 
-        {/* Coluna Direita: Lista de Soluções */}
-        <div className="w-full">
-          <ul className="flex flex-col gap-10">
+        <section>
+          <ol className="lg:flex gap-8">
             {solutionList.map((item, i) => (
               <li
                 key={i}
-                ref={(el) => (listItemsRef.current[i] = el)}
-                className="flex flex-col gap-4 border-b border-gank-p/25 pb-5 lg:flex-row lg:items-center"
+                ref={(el) => { listItemsRef.current[i] = el; }}
+                className="flex flex-col gap-4 pb-5"
               >
-                <span className="text-3xl font-bold text-gank-p/25 lg:text-5xl">
-                  0{i + 1}
-                </span>
-                <div>
-                  <h3 className="mb-1 text-2xl text-gank-050">
-                    {item.title}
-                  </h3>
-                  <p className="text-lg text-zinc-400">{item.p}</p>
+                <small className="item-num text-gank-p text-base">0{i + 1}</small>
+                <div className="item-border border-l pl-4 ml-2">
+                  <h3 className="item-title mb-1 text-2xl text-gank-050">{item.title}</h3>
+                  <div className="item-p-wrap overflow-hidden">
+                    <p className="text-lg text-zinc-400">{item.p}</p>
+                  </div>
                 </div>
               </li>
             ))}
-          </ul>
-        </div>
+          </ol>
+        </section>
         
-      </article>
-    </div>
+      </div>
+    </article>
   );
 }

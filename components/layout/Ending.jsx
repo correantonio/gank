@@ -139,9 +139,9 @@ export default function Ending() {
             ))}
           </MagicCard>
 
-          <div className="flex flex-col gap-4 items-center">
+          <div className="flex flex-col gap-4 items-center max-w-10/12">
             <Button>Quero mudar minha operação</Button>
-            <small className="text-center relative">
+            <small className="text-center relative w-fit">
               <span className="-left-4 top-[5px] absolute">
                 <div className="relative size-fit flex items-center justify-center">
                   <span className="absolute rounded-full size-3 animate-ping bg-gank-600__main block" />

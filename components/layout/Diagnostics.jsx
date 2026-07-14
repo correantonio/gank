@@ -70,7 +70,7 @@ export default function Diagnostics() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 5%',
+          start: 'top 2%',
           end: '+=2800', // Aumentado ligeiramente para acomodar o novo movimento fluido
           scrub: 1,
           pin: true,
@@ -110,10 +110,10 @@ export default function Diagnostics() {
   }, []);
 
   return (
-    <article className="w-full">
+    <article className="w-full" id='s-diagnostics'>
       <div 
         ref={containerRef} 
-        className="container mx-auto max-w-7xl px-4 py-20"
+        className="container mx-auto max-w-7xl px-4 pb-20 "
       >
         <div className="grid w-full items-start">
           
@@ -124,9 +124,9 @@ export default function Diagnostics() {
                 Seu <span className="text-emphasys">e-commerce</span> está assim?
               </SectionHeader>
             </div>
-            
+
             <div ref={cardContainer1Ref} className="w-full lg:max-w-5/12">
-              <MagicCard className="p-10">
+              <MagicCard className="p-4 lg:p-10">
                 {list.error.map((item, i) => (
                   <div key={i} ref={(el) => (items1Ref.current[i] = el)}>
                     <ListItem text={item} status="error" border="fullBorder" />
@@ -149,7 +149,7 @@ export default function Diagnostics() {
 
             <div ref={cardContainer2Ref} className="grid w-full gap-5 lg:order-1 lg:max-w-5/12">
               <p ref={text2Ref} className="text-lg">Se você não tem:</p>
-              <MagicCard className="p-10">
+              <MagicCard className="p-4 lg:p-10">
                 {list.success.map((item, i) => (
                   <div key={i} ref={(el) => (items2Ref.current[i] = el)}>
                     <ListItem text={item} status="success" border="fullBorder" />

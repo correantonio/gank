@@ -13,7 +13,7 @@ const Circles = () => {
   return (
     <div className="absolute left-0 top-0 size-full -z-10 flex justify-center items-center">
       <div className="absolute top-1/2 left-1/2 size-[980px] -translate-1/2 z-20 rounded-full opacity-40 lg:opacity-100 bg-radial from-gank-700 to-gank-900/0 blur-3xl" />
-      <div className='size-[1080px] relative'>
+      <div className="size-[1080px] relative">
         {multipliers.map((multiplier, i) => {
           const currentSize = baseSize * multiplier;
           return (

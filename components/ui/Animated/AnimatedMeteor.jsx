@@ -16,7 +16,7 @@ const AnimatedMeteor = () => {
       {METEORS.map((m) => (
         <span
           key={m.id}
-          className="absolute top-[-5%] h-px w-28 rounded-full bg-gradient-to-r from-gank-grayish-100/90 via-gank-grayish-100/40 to-transparent motion-safe:animate-meteor motion-reduce:hidden"
+          className="absolute top-[-5%] h-px w-28 rounded-full bg-linear-to-r from-gank-grayish-100/90 via-gank-grayish-100/40 to-transparent motion-safe:animate-meteor motion-reduce:hidden"
           style={{
             left: `${m.left}%`,
             animationDelay: `${m.delay}s`,
