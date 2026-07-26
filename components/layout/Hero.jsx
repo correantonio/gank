@@ -22,7 +22,7 @@ const Hero = () => {
 
         <div>
           <TypographyH1>
-            <span className="text-emphasys">Escale</span> seu ecommerce com previsibilidade  <span className="text-emphasys">lucro</span>
+            <span className="text-emphasys">Escale</span> seu e-commerce com previsibilidade  <span className="text-emphasys">lucro</span>
           </TypographyH1>
           <p className="text-gank-grayish-100 text-lg max-w-2xl mx-auto mt-2">
             Se você já investe em tráfego, mas não tem clareza de quanto volta, quanto pode investir e quando escalar, sua operação está travando seu crescimento

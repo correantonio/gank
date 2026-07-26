@@ -6,6 +6,8 @@ import Example from '@/components/layout/Example';
 import Differential from '@/components/layout/Differential';
 import Public from '@/components/layout/Public';
 import Ending from '@/components/layout/Ending';
+import Group from '@/components/layout/Group';
+import ClientExample from '@/components/layout/ClientExample';
 
 export default function Home() {
 const jsonLd = {
@@ -77,7 +79,9 @@ const jsonLd = {
       <Hero />
       <Diagnostics />
       <Solution />
+      <Group/>
       <Example />
+      <ClientExample/>
       <Differential />
       <Public/>
       <Ending />

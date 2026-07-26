@@ -43,7 +43,7 @@ export default function Ending() {
   }, []);
 
   return (
-    <footer ref={containerRef} className="relative w-full overflow-hidden">
+    <footer ref={containerRef} className="relative w-full overflow-hidden min-h-dvh">
       {/* <div
         className="absolute left-1/2 size-6/12 -translate-x-1/2 bg-linear-0 to-gank-900 from-gank-500/10"
         aria-hidden="true"
