@@ -1,17 +1,17 @@
-// ClientExample.jsx
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cn } from '@/lib/utils';
-
 import clientImage from '../../assets/08-clientExample/ClientExampleImg.avif';
 import ProducCard from '../../assets/08-clientExample/1-ProductCard.avif';
 import CampaignCard from '../../assets/08-clientExample/2-CampaignCard.avif';
 import AdmCard from '../../assets/08-clientExample/3-AdmCard.avif';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const cardContent = [
   {
@@ -19,7 +19,7 @@ const cardContent = [
     title: 'Produtos',
     text: 'Organização visando qualidade e entrega',
     x: 'lg:left-4',
-    y: 'lg:top-40',
+    y: 'lg:top-[200px]',
   },
   {
     img: CampaignCard,
@@ -65,19 +65,19 @@ export default function ClientExample() {
   const imageWrapRef = useRef(null);
 
   useEffect(() => {
-    // GSAP focado EXCLUSIVAMENTE na imagem e restrito ao desktop
+    
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
       mm.add('(min-width: 1024px)', () => {
         gsap.fromTo(
           imageWrapRef.current,
-          { scale: 0.32 },
+          { scale: 0.50 },
           {
             scale: 1,
             ease: 'none',
             scrollTrigger: {
               trigger: sectionRef.current,
-              start: 'top 40%',
+              start: 'top 65%',
               end: 'center center',
               scrub: true, // Amarrado perfeitamente ao scroll
             },
@@ -91,11 +91,7 @@ export default function ClientExample() {
 
   return (
     <article id="s-client" ref={sectionRef} className="bg-gank-950 overflow-hidden">
-      {/* 
-        Keyframes embutidos para a animação puramente CSS.
-        Nota: translateY(-100px) move o card para CIMA. Logo, a animação os fará descer. 
-        Se quisesse de baixo para cima, o valor deveria ser positivo (100px). 
-      */}
+     
       <style>{`
         @keyframes pureCssEntry {
           0% { transform: translateY(-100px); opacity: 0; }
@@ -108,7 +104,7 @@ export default function ClientExample() {
 
       <div className="lg:max-w-7xl mx-auto px-4 pb-20 pt-44">
         <div className="relative">
-          {/* Título original restaurado, sem o lg:hidden */}
+          
           <div className="mb-10 text-center pb-10 border-b border-gank-p/25">
             <p className="text-2xl lg:text-4xl mb-1 text-gank-050 font-baskerville">duck&co</p>
             <p className="text-gray-300">Um e-commerce de sucesso com a Gank</p>
@@ -124,10 +120,7 @@ export default function ClientExample() {
             />
           </div>
 
-          {/* 
-            Container flex com overflow-x-auto habilitado no mobile para scroll horizontal. 
-            No desktop (lg:block lg:overflow-visible), permite que os itens voltem a ser absolutos.
-          */}
+          
           <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-10 lg:block lg:overflow-visible lg:pb-0">
             {cardContent.map((item, i) => (
               <ClientExampleCard

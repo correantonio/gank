@@ -75,7 +75,7 @@ const jsonLd = {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    <main className="text-gank-p">
+    <main className="text-gank-p w-screen max-w-[100vw] overflow-x-hidden">
       <Hero />
       <Diagnostics />
       <Solution />

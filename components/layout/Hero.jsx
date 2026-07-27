@@ -12,20 +12,28 @@ import TypographyH1 from '../ui/Text/TypographyH1';
 
 const Hero = () => {
   return (
-    <header className="hero relative h-dvh">
+    <header className="hero relative h-dvh max-w-[100vw]">
       <div className="container mx-auto p-4 grid gap-8 justify-items-center text-center relative">
         <MagneticWrapper>
-        <div className="relative w-fit -mb-10 lg:-mb-20 -mt-10 lg:mt-0">
-          <Image src={ganklogo} alt="Logo Gank" className="size-[256px] block max-w-[384px] lg:size-[448px] lg:max-w-[448px]" priority/>
-        </div>
+          <div className="relative w-fit -mb-10 lg:-mb-20 -mt-10 lg:mt-0">
+            <Image
+              src={ganklogo}
+              alt="Logo Gank"
+              className="size-[256px] block max-w-[384px] lg:size-[448px] lg:max-w-[448px]"
+              priority
+            />
+          </div>
         </MagneticWrapper>
 
         <div>
           <TypographyH1>
-            <span className="text-emphasys">Escale</span> seu e-commerce com previsibilidade  <span className="text-emphasys">lucro</span>
+            <span className="text-emphasys">Escale</span> seu e-commerce com
+            previsibilidade <span className="text-emphasys">lucro</span>
           </TypographyH1>
           <p className="text-gank-grayish-100 text-lg max-w-2xl mx-auto mt-2">
-            Se você já investe em tráfego, mas não tem clareza de quanto volta, quanto pode investir e quando escalar, sua operação está travando seu crescimento
+            Se você já investe em tráfego, mas não tem clareza de quanto volta,
+            quanto pode investir e quando escalar, sua operação está travando
+            seu crescimento
           </p>
         </div>
 
