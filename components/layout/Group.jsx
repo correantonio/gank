@@ -11,8 +11,6 @@ import equipeGank from '../../assets/07-group/4-equipegank.jpg';
 import gankLogo from '../../public/Gank.svg';
 import gankLogo2 from '../../assets/0-hero/logogank3d.png';
 
-// --- Subcomponentes ---
-
 function GroupCard({ children, className, withImages = false }) {
   return (
     <div

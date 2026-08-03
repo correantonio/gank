@@ -9,9 +9,7 @@ import ProducCard from '../../assets/08-clientExample/1-ProductCard.avif';
 import CampaignCard from '../../assets/08-clientExample/2-CampaignCard.avif';
 import AdmCard from '../../assets/08-clientExample/3-AdmCard.avif';
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+gsap.registerPlugin(ScrollTrigger);
 
 const cardContent = [
   {
