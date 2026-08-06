@@ -7,6 +7,7 @@ import ListItem from '../ui/ListItem';
 import SectionHeader from '../ui/SectionHeader';
 import MagicCard from '../ui/MagicCard';
 import Divider from '../ui/Divider';
+import Button from '../ui/Button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,6 +159,7 @@ export default function Diagnostics() {
               </MagicCard>
               <span ref={text2BottomRef} className="mx-auto inline-block w-fit bg-linear-to-r from-gank-900/25 via-gank-600__main to-gank-600__main/0 px-4 py-2 text-center">
                 Escalar só aumenta o risco.
+              <span className="inline-block ml-2"><Button variant="inline">Saiba mais</Button></span>
               </span>
             </div>
           </section>

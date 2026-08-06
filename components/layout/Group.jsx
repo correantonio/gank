@@ -10,6 +10,7 @@ import rodrigo from '../../assets/07-group/3-rodrigorodrigueiro.jpg';
 import equipeGank from '../../assets/07-group/4-equipegank.jpg';
 import gankLogo from '../../public/Gank.svg';
 import gankLogo2 from '../../assets/0-hero/logogank3d.png';
+import Button from '../ui/Button';
 
 function GroupCard({ children, className, withImages = false }) {
   return (
@@ -49,11 +50,12 @@ function GroupCardWithImg({ img, description, className }) {
 
 const ROW_1_CARDS = [
   <GroupCard key="1">
-    <ArrowUpCircle aria-hidden="true" className="mb-8 size-10 text-gank-050" />
+    <ArrowUpCircle aria-hidden="true" className="mb-4 size-10 text-gank-050" />
     <p className="mb-2 text-xl text-gank-050 lg:text-3xl">R$500 mil/mês</p>
     <p className="text-base text-gank-050 lg:text-xl text-balance">
       com controle e previsibilidade
     </p>
+    <p>O próximo resultado <Button variant="inline">pode ser o seu</Button></p>
   </GroupCard>,
   <GroupCard key="2" withImages>
     <GroupCardWithImg img={rafa} description="Rafael Dalostt" />
@@ -70,10 +72,11 @@ const ROW_1_CARDS = [
 ];
 
 const ROW_2_CARDS = [
-  <GroupCard key="6" className="flex items-center">
+  <GroupCard key="6" className="flex flex-col justify-center gap-4">
     <p className="font-baskerville text-xl text-gank-050 text-balance lg:text-3xl">
       Faça parte do nosso ecossistema
     </p>
+      <Button variant="inline">Entre em contato</Button>
   </GroupCard>,
   <GroupCard key="7" withImages>
     <GroupCardWithImg img={rodrigo} description="Rodrigo Rodrigueiro, fundador" />

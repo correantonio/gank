@@ -1,8 +1,8 @@
 import React from 'react';
-import Divider from '../ui/Divider';
 import ListItem from '../ui/ListItem';
 import rocketImage from '@/assets/06-public/rocketlaunch.jpg';
 import Image from 'next/image';
+import Button from '../ui/Button';
 
 const Public = () => {
   const list = {
@@ -34,7 +34,7 @@ const Public = () => {
           <p className="title-h2 mb-5">
             Esse projeto é <span className="text-emphasys">para você</span> que
           </p>
-          <ul className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-5 mb-4">
             {list.success.map((item, i) => {
               return (
                 <ListItem
@@ -46,6 +46,7 @@ const Public = () => {
               );
             })}
           </ul>
+          <Button variant="default" className="w-full text-center relative animate-pulse">Cresça com a Gank</Button>
         </div>
         <div className="lg:max-w-4/12  rounded-[inherit] px-4 p-10">
           <p className="title-h2 mb-5">Não é para você que</p>
